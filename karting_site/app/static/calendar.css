@@ -1,0 +1,50 @@
+.fc {
+    font-family: Arial, sans-serif;
+}
+
+.fc-header-toolbar {
+    margin-bottom: 1em;
+}
+
+.fc-event {
+    background-color: #007bff;
+    border-color: #007bff;
+    cursor: pointer;
+}
+
+.fc-event:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.fc-daygrid-event-dot {
+    border-color: white;
+}
+
+.fc-daygrid-day-number {
+    color: #495057;
+}
+
+.fc-day-today {
+    background-color: #fff3cd !important;
+}
+
+.fc-col-header-cell-cushion {
+    color: #495057;
+    font-weight: bold;
+}
+
+.fc-button {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.fc-button:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.fc-button-primary:not(:disabled).fc-button-active {
+    background-color: #007bff;
+    border-color: #007bff;
+}

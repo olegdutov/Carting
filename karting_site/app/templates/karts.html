@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Доступные карты{% endblock %}
+
+{% block body %}
+<h1>Доступные карты для бронирования</h1>
+
+{% if karts %}
+<ul>
+    {% for kart in karts %}
+    <li>
+        <strong>{{ kart.model }}</strong><br>
+        {{ kart.description or 'Описание отсутствует' }}<br>
+        Стоимость аренды: {{ kart.price }} ₽<br>
+        <a href="{{ url_for('main.reserve', kart_id=kart.id) }}">Забронировать</a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Картов пока нет.</p>
+{% endif %}
+{% endblock %}

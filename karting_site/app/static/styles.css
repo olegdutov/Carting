@@ -1,0 +1,72 @@
+/* Общие настройки */
+body {
+  background-color: #eef2f7;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Навигация */
+.navbar {
+  background: linear-gradient(90deg, #1f3c88, #2a5298);
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.navbar-brand, .nav-link {
+  color: #fff !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+.nav-link:hover {
+  color: #e3e3e3 !important;
+  text-decoration: underline;
+}
+
+/* Главное изображение */
+.main-photo {
+  display: block;
+  margin: 20px auto;
+  max-width: 90%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Заголовки и текст */
+h1, p {
+  padding-left: 15px;
+  color: #2c3e50;
+}
+
+/* Сообщения */
+.flashes {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+.flash {
+  padding: 10px 15px;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+}
+.flash.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+.flash.danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+.flash.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}

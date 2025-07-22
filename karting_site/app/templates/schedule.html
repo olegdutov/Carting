@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='calendar.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="content-section">
+    <h1 class="mb-4">Schedule Your Session</h1>
+    <div id="calendar"></div>
+</div>
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            events: [
+                // Здесь можно добавить события из базы данных
+                // Пример:
+                // {
+                //     title: 'Booked',
+                //     start: '2023-06-01T10:00:00',
+                //     end: '2023-06-01T12:00:00'
+                // }
+            ],
+            dateClick: function(info) {
+                alert('Clicked on: ' + info.dateStr);
+                // Здесь можно добавить логику для бронирования
+            },
+            eventClick: function(info) {
+                alert('Event: ' + info.event.title);
+            }
+        });
+        calendar.render();
+    });
+</script>
+{% endblock %}
+{% endblock content %}

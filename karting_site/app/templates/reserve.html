@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Бронирование карт{% endblock %}
+
+{% block body %}
+<h1>Бронирование: {{ kart.model }}</h1>
+
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.kart_id.label }}<br>
+        {{ form.kart_id(readonly=True) }}
+    </p>
+
+    <p>
+        {{ form.start_time.label }}<br>
+        {{ form.start_time() }}<br>
+        {% for error in form.start_time.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </p>
+
+    <p>
+        {{ form.end_time.label }}<br>
+        {{ form.end_time() }}<br>
+        {% for error in form.end_time.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </p>
+
+    <p>{{ form.submit() }}</p>
+</form>
+
+<a href="{{ url_for('main.karts') }}">Назад к списку карт</a>
+{% endblock %}

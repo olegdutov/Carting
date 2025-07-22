@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">Admin Panel</h1>
+
+<div class="content-section mb-5">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Add New Kart</legend>
+            <div class="form-group">
+                {{ form.name.label(class="form-control-label") }}
+                {{ form.name(class="form-control form-control-lg") }}
+            </div>
+            <div class="form-group">
+                {{ form.description.label(class="form-control-label") }}
+                {{ form.description(class="form-control form-control-lg") }}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+
+<h2 class="mb-3">All Karts</h2>
+<div class="row">
+    {% for kart in karts %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ kart.name }}</h5>
+                    <p class="card-text">{{ kart.description }}</p>
+                    <p class="card-text">
+                        Status: 
+                        <span class="badge badge-{{ 'success' if kart.is_active else 'danger' }}">
+                            {{ 'Active' if kart.is_active else 'Inactive' }}
+                        </span>
+                    </p>
+                    <a href="#" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Личный кабинет{% endblock %}
+
+{% block body %}
+<h1>Добро пожаловать, {{ current_user.username }}!</h1>
+<p>Email: {{ current_user.email }}</p>
+
+<h2>Ваши бронирования:</h2>
+{% if reservations %}
+    <ul style="list-style: none; padding-left: 0;">
+    {% for r in reservations %}
+        <li style="background: #fff; margin-bottom: 1rem; padding: 1rem; border-radius: 0.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <strong>Карт: {{ r.kart.model }}</strong><br>
+            С: {{ r.start_time.strftime('%Y-%m-%d %H:%M') }}<br>
+            До: {{ r.end_time.strftime('%Y-%m-%d %H:%M') }}<br><br>
+            <form method="POST" action="{{ url_for('main.cancel_reservation', reservation_id=r.id) }}" style="display:inline;">
+                <button type="submit" class="btn btn-danger">Отменить</button>
+            </form>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>У вас пока нет бронирований.</p>
+{% endif %}
+
+<p><a href="{{ url_for('main.karts') }}" class="btn btn-primary">Забронировать карт</a></p>
+{% endblock %}
