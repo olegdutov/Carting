@@ -15,7 +15,7 @@ def create_app():
 
     # Генерируем абсолютный путь к папке instance
     instance_path = os.path.join(app.root_path, '..', 'instance')
-    os.makedirs(instance_path, exist_ok=True)  # создаём папку, если нет
+    os.makedirs(instance_path, exist_ok=True) 
 
     # Конфигурация
     app.config['SECRET_KEY'] = '95b598a1b374df76a2fac72665c382fc8fb6bed270399d014d29c5b5f31394ee'
@@ -28,11 +28,11 @@ def create_app():
     bcrypt.init_app(app)
     migrate.init_app(app, db)
 
-    login_manager.login_view = 'main.login'  # маршрут для редиректа при неавторизованном доступе
+    login_manager.login_view = 'main.login'
     login_manager.login_message_category = 'info'
 
     # Импорт и регистрация блюпринта
-    from app import routes  # или from app.main import routes если структура другая
+    from app import routes
     app.register_blueprint(routes.main_bp)
 
     return app
