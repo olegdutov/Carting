@@ -18,7 +18,7 @@ def create_app():
     os.makedirs(instance_path, exist_ok=True)  # создаём папку, если нет
 
     # Конфигурация
-    app.config['SECRET_KEY'] = '95b598a1b374df76a2fac72665c382fc8fb6bed270399d014d29c5b5f31394ee'  # Замените на настоящий ключ!
+    app.config['SECRET_KEY'] = '95b598a1b374df76a2fac72665c382fc8fb6bed270399d014d29c5b5f31394ee'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(instance_path, 'database.db')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
